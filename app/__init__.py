@@ -14,6 +14,5 @@ def crearAPP() -> object:
     app.config.from_object(produccion)
     app.register_blueprint(autenticacion) # registrar el blue print
     login_manager.init_app(app)
-    # Importar las rutas después de crear la app para evitar import circular
-    from app import routes  
+    # Importar las rutas después de crear la app para evitar import circular? No
     return app    
