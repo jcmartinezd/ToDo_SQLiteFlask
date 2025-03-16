@@ -1,12 +1,11 @@
+# app/usuarios.py
 from datetime import datetime
-
 from flask_login import UserMixin
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError, OperationalError
 from werkzeug.security import check_password_hash, generate_password_hash
+from .db import db  # Importa la instancia única
 from .almecen import Pendientes
 
-db = SQLAlchemy()
 
 class Usuario(db.Model, UserMixin):
     __tablename__ = 'usuario'
