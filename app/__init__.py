@@ -2,6 +2,7 @@ from flask import Flask, url_for
 from flask_login import LoginManager
 from .configuracion import produccion
 from .autenticacion import autenticacion
+from app import routes
 
 login_manager = LoginManager()
 login_manager.login_view = 'autenticacion.logearse'
