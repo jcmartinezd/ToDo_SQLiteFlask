@@ -2,7 +2,7 @@ from flask import Flask, url_for
 from flask_login import LoginManager
 from .configuracion import produccion
 from .autenticacion import autenticacion
-from app import routes
+
 
 login_manager = LoginManager()
 login_manager.login_view = 'autenticacion.logearse'
@@ -14,4 +14,6 @@ def crearAPP() -> object:
     app.config.from_object(produccion)
     app.register_blueprint(autenticacion) # registrar el blue print
     login_manager.init_app(app)
-    return app
+    # Importar las rutas después de crear la app para evitar import circular
+    from app import routes  
+    return app    
